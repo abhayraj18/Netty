@@ -34,6 +34,7 @@ public class Client {
 
             channel.write("Hi\n");
             channel.write("Hi\n");
+            channel.write("Hi\n");
             channel.flush();
             
         } catch (Exception e) {
