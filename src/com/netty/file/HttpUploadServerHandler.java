@@ -302,18 +302,14 @@ public class HttpUploadServerHandler extends SimpleChannelInboundHandler<HttpObj
 					e.printStackTrace();
 				}
                 if (fileUpload.isCompleted()) {
-                    if (fileUpload.length() < 50000) {
-                        responseContent.append("\tContent of file\r\n");
-                        try {
-                            responseContent.append(fileUpload.getString(fileUpload.getCharset()));
-                        } catch (IOException e1) {
-                            // do nothing for the example
-                            e1.printStackTrace();
-                        }
-                        responseContent.append("\r\n");
-                    } else {
-                        responseContent.append("\tFile too long to be printed out:" + fileUpload.length() + "\r\n");
+                    responseContent.append("\tContent of file\r\n");
+                    try {
+                        responseContent.append(fileUpload.getString(fileUpload.getCharset()));
+                    } catch (IOException e1) {
+                        // do nothing for the example
+                        e1.printStackTrace();
                     }
+                    responseContent.append("\r\n");
                     // fileUpload.isInMemory();// tells if the file is in Memory
                     // or on File
                     // fileUpload.renameTo(dest); // enable to move into another
